@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import userSvg from '../../Images/user.svg';
@@ -17,6 +17,16 @@ const AuthContext = props => {
     const history = useHistory();
     const location = useLocation();
     const [currentUser, setCurrentUser] = useState({})
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                setUser(user)
+            } else {
+                localStorage.setItem('currentUser',JSON.stringify({}))
+            }
+          });
+    }, [])
 
     // common functions
     const setUser = (user,  setName) => {

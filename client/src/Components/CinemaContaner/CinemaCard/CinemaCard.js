@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './CinemaCard.css';
 
 const CinemaCard = ({cinema}) => {
-    const {_id,name,date,time,img,set}=cinema;
+    const {_id,name,date,time,img}=cinema;
     return (
         <div className='cinemaCard'>
             <Link to={'/cinema/' + _id} className='cinemaCardInfo'>
