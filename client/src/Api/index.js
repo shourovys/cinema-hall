@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:4000'
+const url = 'https://cinema-hall-1.herokuapp.com'
 
 export const fetchCinema=()=>axios.get(`${url}/cinema/all`)
 export const getSignalCinema=(cinemaId)=>axios.get(`${url}/cinema/${cinemaId}`)
