@@ -28,7 +28,10 @@ const BookingContainer = () => {
             }else{
                 dispatch(errorNF('you can book 10 seat at a time'))
             }
+        }else{
+            setSelectedSeat(selectedSeat.filter(selected=>selected!==seat))  
         }
+
     } 
 
     const bookSeats=()=>{

@@ -8,7 +8,7 @@ const SeatsShower = ({seats,getSelectedSeats,selectedSeat}) => {
                     <li 
                     key={seat.no} 
                     className={seat.booked?`seat booked`:'seat not-booked'}
-                    onClick={()=>getSelectedSeats(seat.no)}
+                    onClick={ !seat.booked? ()=>getSelectedSeats(seat.no): ''}
                     style={{backgroundColor: selectedSeat.indexOf(seat.no)!==-1&&'#2dc492'}}
                     >
                         <span>{seat.no}</span>
